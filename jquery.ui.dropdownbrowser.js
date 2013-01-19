@@ -1,6 +1,6 @@
 // the widget definition, where 'custom' is the namespace,
-// 'dropdownbrowser' the widget name
-$.widget( 'custom.dropdownbrowser', {
+// 'dropdownbrowse' the widget name
+$.widget( 'custom.dropdownbrowse', {
   // default options
   options: {
     height: 200,
@@ -9,7 +9,6 @@ $.widget( 'custom.dropdownbrowser', {
     previous_ui: true,
     selected: 0,
     data: null,
-    position: null,
 
     // callbacks
     onSelect: null,
@@ -36,12 +35,12 @@ $.widget( 'custom.dropdownbrowser', {
     }
 
     this.wrapper = $( '<div>', {
-      class: 'custom-dropdownbrowser-wrapper',
+      class: 'custom-dropdownbrowse-wrapper',
     });
 
     this.element
       // add a class for theming
-      .addClass( 'custom-dropdownbrowser' )
+      .addClass( 'custom-dropdownbrowse' )
       .wrap(this.wrapper);
 
     this.wrapper = this.element.parent();
@@ -49,7 +48,7 @@ $.widget( 'custom.dropdownbrowser', {
     if (this.options.previous_ui) {
       this.prev_changer = $( '<button>', {
         text: 'Previous',
-        'class': 'custom-dropdownbrowser-changer-prev'
+        'class': 'custom-dropdownbrowse-changer-prev'
       })
       .appendTo( this.element )
       .button({
@@ -68,7 +67,7 @@ $.widget( 'custom.dropdownbrowser', {
 
     this.this_button = $( '<button>', {
       text: this.options.selected,
-      'class': 'custom-dropdownbrowser-button'
+      'class': 'custom-dropdownbrowse-button'
     });
 
     this.keep_focus = false;
@@ -81,24 +80,27 @@ $.widget( 'custom.dropdownbrowser', {
 
     this._on( this.this_button, {
       click: function( event ) {
-        this.this_menu.show();
-      },
+        var this_pos = this.this_button.position();
+        var this_height = this.this_button.outerHeight();
+
+        this.this_menu
+          .css({
+            top: this_pos.top + this_height,
+            left: this_pos.left,
+          })
+          .show();
+      }
     });
 
     this.this_button
       .css('width', this.options.width)
       .appendTo( this.element );
 
-    var this_pos = this.this_button.position();
-    var this_height = this.this_button.outerHeight();
-
     this.this_menu = $( '<ul />' )
-      .addClass('dropdownbrowser-menu')
+      .addClass('dropdownbrowse-menu')
       .css({
         width: this.options.width,
         height: this.options.height,
-        top: this_pos.top + this_height,
-        left: this_pos.left,
         overflow: 'auto',
         position: 'absolute',
         'z-index': 1,
@@ -145,7 +147,7 @@ $.widget( 'custom.dropdownbrowser', {
     if (this.options.next_ui) {
       this.next_changer = $( '<button>', {
         text: 'Next',
-        'class': 'custom-dropdownbrowser-changer-next'
+        'class': 'custom-dropdownbrowse-changer-next'
       })
       .appendTo( this.element )
       .button({
@@ -222,7 +224,7 @@ $.widget( 'custom.dropdownbrowser', {
     this.next_changer.remove();
 
     this
-      .removeClass( 'custom-dropdownbrowser' )
+      .removeClass( 'custom-dropdownbrowse' )
       .enableSelection();
 
     $(this.options.apply_to)
