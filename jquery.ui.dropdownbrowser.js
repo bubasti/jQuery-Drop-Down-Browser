@@ -66,7 +66,6 @@ $.widget( 'custom.dropdownbrowser', {
     }
 
     this.this_button = $( '<button>', {
-      text: this.options.selected,
       'class': 'custom-dropdownbrowser-button'
     });
 
@@ -175,11 +174,12 @@ $.widget( 'custom.dropdownbrowser', {
         }
       }
     });
+
+    this.option( 'selected', this.options.selected );
   },
 
   // called when created, and later when changing options
-  _refresh: function() {
-  },
+  _refresh: function() { },
 
   previous: function( event ) {
     this._trigger( 'beforePrevious', event );
