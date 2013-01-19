@@ -1,6 +1,6 @@
 // the widget definition, where 'custom' is the namespace,
-// 'dropdownbrowse' the widget name
-$.widget( 'custom.dropdownbrowse', {
+// 'dropdownbrowser' the widget name
+$.widget( 'custom.dropdownbrowser', {
   // default options
   options: {
     height: 200,
@@ -36,12 +36,12 @@ $.widget( 'custom.dropdownbrowse', {
     }
 
     this.wrapper = $( '<div>', {
-      class: 'custom-dropdownbrowse-wrapper',
+      class: 'custom-dropdownbrowser-wrapper',
     });
 
     this.element
       // add a class for theming
-      .addClass( 'custom-dropdownbrowse' )
+      .addClass( 'custom-dropdownbrowser' )
       .wrap(this.wrapper);
 
     this.wrapper = this.element.parent();
@@ -49,7 +49,7 @@ $.widget( 'custom.dropdownbrowse', {
     if (this.options.previous_ui) {
       this.prev_changer = $( '<button>', {
         text: 'Previous',
-        'class': 'custom-dropdownbrowse-changer-prev'
+        'class': 'custom-dropdownbrowser-changer-prev'
       })
       .appendTo( this.element )
       .button({
@@ -68,7 +68,7 @@ $.widget( 'custom.dropdownbrowse', {
 
     this.this_button = $( '<button>', {
       text: this.options.selected,
-      'class': 'custom-dropdownbrowse-button'
+      'class': 'custom-dropdownbrowser-button'
     });
 
     this.keep_focus = false;
@@ -93,7 +93,7 @@ $.widget( 'custom.dropdownbrowse', {
     var this_height = this.this_button.outerHeight();
 
     this.this_menu = $( '<ul />' )
-      .addClass('dropdownbrowse-menu')
+      .addClass('dropdownbrowser-menu')
       .css({
         width: this.options.width,
         height: this.options.height,
@@ -145,7 +145,7 @@ $.widget( 'custom.dropdownbrowse', {
     if (this.options.next_ui) {
       this.next_changer = $( '<button>', {
         text: 'Next',
-        'class': 'custom-dropdownbrowse-changer-next'
+        'class': 'custom-dropdownbrowser-changer-next'
       })
       .appendTo( this.element )
       .button({
@@ -222,7 +222,7 @@ $.widget( 'custom.dropdownbrowse', {
     this.next_changer.remove();
 
     this
-      .removeClass( 'custom-dropdownbrowse' )
+      .removeClass( 'custom-dropdownbrowser' )
       .enableSelection();
 
     $(this.options.apply_to)

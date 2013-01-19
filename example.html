@@ -6,7 +6,7 @@
     <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css" media="all" />
 
-    <script src="https://raw.github.com/bubasti/jQuery-Drop-Down-Browser/master/jquery.ui.dropdownbrowse.js" type="text/javascript"></script>
+    <script src="https://raw.github.com/bubasti/jQuery-Drop-Down-Browser/master/jquery.ui.dropdownbrowser.js" type="text/javascript"></script>
 
     <style>
       div {
@@ -38,18 +38,18 @@
           'option 20'
         ];
 
-        $('#dropdownbrowser0').dropdownbrowse({
+        $('#dropdownbrowser0').dropdownbrowser({
           data: data,
           previous_ui: false,
         });
 
-        $('#dropdownbrowser1').dropdownbrowse({
+        $('#dropdownbrowser1').dropdownbrowser({
           data: data,
           previous_ui: false,
           next_ui: false,
         });
 
-        $('#dropdownbrowser2').dropdownbrowse({
+        $('#dropdownbrowser2').dropdownbrowser({
           selected: 12,
           data: data,
           onSelect: function(e, u) {
@@ -69,7 +69,7 @@
           }
         });
 
-        $('#dropdownbrowser3').dropdownbrowse({
+        $('#dropdownbrowser3').dropdownbrowser({
           data: data,
           next_ui: false,
           selected: 'option 17',

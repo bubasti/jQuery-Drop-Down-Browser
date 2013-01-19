@@ -1,7 +1,7 @@
 Drop Down Browser is a jQuery 1.9 Widget Factory plugin with Themeroller support.
 
 ### Example:
-    $('#dropdownbrowser3').dropdownbrowse({
+    $('#dropdownbrowser3').dropdownbrowser({
       data: data,
       next_ui: false,
       selected: 'option 17',
